@@ -2,23 +2,7 @@
   <% for (var i = 0, len = posts.models.length; i < len; i++) { %>
 
     <div class="post" id="post-<%= posts.models[i].get('id') %>">
-      <div class="display">
-        <div class="title" id="post-title-<%= posts.models[i].get('id') %>">
-          <%= posts.models[i].get('title') %>
-        </div>
-        <div class="body" id="post-body-<%= posts.models[i].get('id') %>">
-          <%= posts.models[i].get('body') %>
-        </div>
-        <div class="published">
-          Published: <%= posts.models[i].get('published') ? 'true' : 'false' %>
-        </div>
-        <div class="actions">
-          <a id="post-edit-<%= posts.models[i].get('id') %>" class="edit_post" href="/posts/<%= posts.models[i].get('id') %>/edit">Edit</a>
-          <a rel="nofollow" id="post-destroy-<%= posts.models[i].get('id') %>" class="remove_post" href="/posts/<%= posts.models[i].get('id') %>">Destroy</a>
-        </div>
-      </div>
-      <div class="form">
-      </div>
+      <%= this.show_tmpl({post: posts.models[i]}) %>
     </div> <!-- .post -->
 
   <% } %>

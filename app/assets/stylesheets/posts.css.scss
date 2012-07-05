@@ -19,9 +19,12 @@
     }
   }
 
-  #new_post {
-    border: 1px dashed gray;
-    margin: 10px;
-    padding: 10px;
+  input[type="text"] {
+    width: 400px;
+  }
+
+  textarea {
+    width: 400px;
+    height: 200px;
   }
 }

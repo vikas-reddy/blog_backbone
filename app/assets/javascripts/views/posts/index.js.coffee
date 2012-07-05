@@ -1,8 +1,8 @@
 class BlogBackbone.Views.PostsIndex extends Backbone.View
 
-  template: JST['posts/index']
-
+  index_tmpl: JST['posts/index']
   form_tmpl: JST['posts/_form']
+  show_tmpl: JST['posts/show']
 
   events: {
     'submit #new_post': 'createPost',
@@ -17,9 +17,9 @@ class BlogBackbone.Views.PostsIndex extends Backbone.View
   
   render: ->
     $(this.el).html(
-      this.template({ posts: this.collection })
+      this.index_tmpl({ posts: this.collection }) +
+      this.form_tmpl({post: new BlogBackbone.Models.Post()})
     )
-    $(this.el).append(this.form_tmpl({post: new BlogBackbone.Models.Post()}))
     return this
   
   getPostId: (e) ->
@@ -47,8 +47,7 @@ class BlogBackbone.Views.PostsIndex extends Backbone.View
     e.preventDefault()
     post_id = this.getPostId(e)
     post = this.collection.get(post_id)
-    $('.display', '#post-' + post_id).hide()
-    $('.form', '#post-' + post_id).html(this.form_tmpl({post: post})).show()
+    $('#post-' + post_id).html(this.form_tmpl({post: post}))
     return false
 
   updatePost: (e) ->
@@ -67,15 +66,17 @@ class BlogBackbone.Views.PostsIndex extends Backbone.View
 
   removePost: (e) ->
     e.preventDefault()
-    this.collection.get(this.getPostId(e)).destroy()
-    this.collection.trigger('reset')
-    return false
+    if confirm('Are you sure?')
+      this.collection.get(this.getPostId(e)).destroy()
+      this.collection.trigger('reset')
   
   cancelPost: (e) ->
     e.preventDefault()
     post_id = this.getPostId(e)
-    $('.display', '#post-' + post_id).show()
-    $('.form', '#post-' + post_id).hide()
+    post = this.collection.get(post_id)
+    $('#post-' + post_id).html(
+      this.show_tmpl({post: post})
+    )
     return false
 
   handleError: (post, response) ->

@@ -1,0 +1,13 @@
+<div class="title" id="post-title-<%= post.get('id') %>">
+  <%= post.get('title') %>
+</div>
+<div class="body" id="post-body-<%= post.get('id') %>">
+  <%= post.get('body') %>
+</div>
+<div class="published">
+  Published: <%= post.get('published') ? 'true' : 'false' %>
+</div>
+<div class="actions">
+  <a id="post-edit-<%= post.get('id') %>" class="edit_post" href="/posts/<%= post.get('id') %>/edit">Edit</a>
+  <a rel="nofollow" id="post-destroy-<%= post.get('id') %>" class="remove_post" href="/posts/<%= post.get('id') %>">Destroy</a>
+</div>
