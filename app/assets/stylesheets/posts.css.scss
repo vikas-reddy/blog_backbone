@@ -1,0 +1,27 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#posts-listing {
+  width: 600px;
+  border: 1px solid gray;
+  padding: 10px;
+
+  #posts {
+    .post {
+      border: 1px dotted gray;
+      margin: 10px;
+      padding: 10px;
+    }
+    .title {
+      font-weight: bold;
+    }
+    .body {
+    }
+  }
+
+  #new_post {
+    border: 1px dashed gray;
+    margin: 10px;
+    padding: 10px;
+  }
+}

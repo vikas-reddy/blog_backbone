@@ -1,0 +1,35 @@
+<h1>Listing posts</h1>
+
+<div id="posts-listing">
+</div> <!-- #posts-listing -->
+
+<!--
+<%# if @posts.empty? %>
+  <div id="posts">
+    No posts yet.
+  </div>
+<%# else %>
+
+  <div id="posts">
+    <%# @posts.each do |post| %>
+      <div class="post" id="post-<%#= post.id %>">
+        <div class="title" id="post-title-<%#= post.id %>"> <%#= post.title %> </div>
+        <div class="body" id="post-body-<%#= post.id %>"> <%#= post.body %> </div>
+        <div class="actions">
+          <%#= link_to 'Edit', edit_post_path(post), :id => "post-edit-#{post.id}" %>
+          <%#= link_to(
+            'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' },
+            class: 'remove_post', id: "post-destroy-#{post.id}"
+          )%>
+        </div>
+      </div>
+    <%# end %>
+  </div>
+
+<%# end %>
+
+<div class="new_form">
+  <h1>New Post</h1>
+  <%#= render 'form' %>
+</div>
+-->

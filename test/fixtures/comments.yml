@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  body: MyText
+  post_id: 1
+  approved: false
+
+two:
+  body: MyText
+  post_id: 1
+  approved: false

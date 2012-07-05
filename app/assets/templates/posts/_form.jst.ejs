@@ -1,0 +1,24 @@
+<form method="post" id="<%= post.isNew() ? 'new_post' : 'edit_post-' + post.get('id') %>" class="<%= post.isNew() ? 'new_post' : 'edit_post' %>" action="/posts" accept-charset="UTF-8">
+  <h2> <%= post.isNew() ? 'New Post' : 'Edit Post' %> </h2>
+
+  <div class="field">
+    <label for="post_title">Title</label><br>
+    <input type="text" size="30" name="post[title]" class="post_title" id="post_title" value="<%= post.get('title') %>">
+  </div>
+  <div class="field">
+    <label for="post_body">Body</label><br>
+    <textarea rows="20" name="post[body]" class="post_body" id="post_body" cols="40"><%= post.get('body') %></textarea>
+  </div>
+  <div class="field">
+    <label for="post_published">Published</label><br>
+    <input type="checkbox" value="1" name="post[published]" <%= post.get('published') ? 'checked=\"checked\"' : '' %> class="post_published" id="post_published">
+  </div>
+  <div class="actions">
+    <% if (post.isNew()) { %>
+      <input type="submit" value="Create Post" name="commit">
+    <% } else { %>
+      <input type="submit" class="post_update" id="post_update-<%= post.get('id') %>" value="Update Post" name="commit">
+      <a id="post_cancel-<%= post.get('id') %>" class="post_cancel" href="#">Cancel</a>
+    <% } %>
+  </div>
+</form>
